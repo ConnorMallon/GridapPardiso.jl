@@ -46,6 +46,7 @@ if isfile(deps_jl)
 end
 
 mklroot = haskey(ENV,"MKLROOT") ? ENV["MKLROOT"] : ""
+#mklroot = "/opt/intel/oneapi/mkl/latest/"
 
 if !haskey(ENV,"MKLROOT")
   MKL_FOUND = false
@@ -59,7 +60,8 @@ else
   @info "MKLROOT found at: $mklroot"
 end
 
-mkllibdir = joinpath(mklroot,"lib/intel64")
+#mkllibdir = joinpath(mklroot,"lib/intel64")
+mkllibdir = "/home/user/snap/intel/compilers_and_libraries_2020.4.304/linux/mkl/lib/intel64"
 
 if ! isdir(mkllibdir)
   MKL_FOUND = false

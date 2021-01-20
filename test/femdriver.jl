@@ -3,6 +3,36 @@ module FEMDriver
 using Test
 using Gridap
 using GridapPardiso
+using BenchmarkTools
+using .Threads
+@show nthreads()
+
+#=
+Threads.@spawn(2)
+
+Threads.nthreads()
+
+using Hwloc
+Hwloc.num_physical_cores()
+  
+using BenchmarkTools
+A = rand(2000,2000)
+B = rand(2000,2000)
+
+@btime $A*$B
+
+using LinearAlgebra
+BLAS.set_num_threads(1)
+@btime $A*$B
+
+BLAS.set_num_threads(4)
+@btime  $A*$B
+
+using .Threads
+nthreads()
+=#
+
+function driver()
 
 tol = 1e-10
 
@@ -58,5 +88,10 @@ b = get_vector(op)
 
 r = A*x - b
 @test maximum(abs.(r)) < tol
+
+end
+
+driver()
+@time driver()
 
 end #module

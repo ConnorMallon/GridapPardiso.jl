@@ -4,7 +4,9 @@ authors = ["Francesc Verdugo <fverdugo@cimne.upc.edu>", "Víctor Sande <vsande@c
 version = "0.4.2"
 
 [deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 Gridap = "56d4f2e9-7ea1-5844-9cf6-b9c51ca7ce8e"
+Hwloc = "0e44f5e4-bd66-52a0-8798-143a42290a1d"
 Libdl = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
 SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
